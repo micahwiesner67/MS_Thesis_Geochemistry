@@ -2,7 +2,7 @@
 title: "Carbonate paleothermometry in Fayetteville Green Lake, NY"
 author: Submitted in accordance with the requirements for the degree of Master of
   Science
-date: "`r Sys.Date()`"
+date: "May 28, 2020"
 output:
   html_document:
     keep_md: true
