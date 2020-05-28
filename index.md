@@ -40,14 +40,22 @@ There are no known detailed studies of clumped isotopes in modern lake water col
 ## 2. Background
 ### *2.1 Lacustrine Carbonate Formation*
 Lacustrine carbonates form throughout the year following the basic carbonate reaction,
-$$1.\;[Ca^{2+}] + [{CO_3^{2-}}] <-> {CaCO_3(s)} $$
+```math
+1. [Ca^{2+}] + [{CO_3^{2-}}] <-> {CaCO_3(s)}
+```
 in which $[Ca^{2+}]$ and $[CO_3^{2-}]$ are ionic activies at equilibrium (*Lakes, Chemistry, Geology, Physics*, 1978). The saturation state and amount of calcite precipitated is controlled directly by the $[CO_2]$ dissolved in lake waters in the form of $H_2CO_3^*$ and the *pH* of the water in the following relation,
-$$2.\;\frac{[CO_3^{2-}][H^+]^2}{[H_2CO_3^*]} = K_1 K_2$$
+```math
+2.\frac{[CO_3^{2-}][H^+]^2}{[H_2CO_3^*]} = K_1 K_2
+```
 in which $H_2CO_3^*$, $[CO_3^{2-}]$, and $[H^+]$ are the activity of dissolved $CO_2$, $[CO_3^{2-}]$, and $[H^+]$, while $K_1$ and $K_2$ are the dissociation constants of $H_2CO_3^*$ (Stumm and Morgan, 1970). In a first order sense, Henry's Law (equation 3),
-$$3.\;\frac {[H_2CO_3^*]}{p_{CO_2}} = K_H$$
+```math
+3.\frac{[H_2CO_3^*]}{p_{CO_2}} = K_H
+```
 determines the amount of $H_2CO_3^*$ in solution in the water column, though $H_2CO_3^*$ in most lake waters is supersaturated (Cole et al., 1994). 
 Dissolved $CO_2$ concentrations, $[H_2CO_3^*]$ in lake waters are controlled by both physical processes, changing temperatures (equation 4), 
-$$4.\;logK_c = 13.870 - 0.04035T - \frac{3059}{T}$$
+```math
+4.logK_c = 13.870 - 0.04035T - \frac{3059}{T}
+```
 which, over annual lake temperatures of 0-25&deg;C, varies $K_c$, the solubility constant of calcium carbonate, from -8.35 to -8.42 (Plummer and Busenburg,1982), as well as biologic processes, Dissolved Organic Carbon (DOC) concentration (Jonsson et al., 2003), and photosynthesis decreasing available $CO_2$ (Stumm & Morgan, 1970, p. 429, Talling, 1976; Thompson & Ferris, 1990).  
 Combining all relevant variables from the equations 1-4 leads to the following equation for the saturation state of calcite, 
 $$5.\;\alpha_{CaCO_3} = {\frac{[Ca^{2+}]*pCO_2*K_1*K_2*K_H}{[H+]^2*K_c}}$$
