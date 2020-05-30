@@ -55,13 +55,12 @@ determines the amount of H<sub>2<sub>CO</sub>3<sub><sup>*</sup> in solution in t
   Dissolved CO<sub>2</sub> concentrations, H<sub>2<sub>CO</sub>3<sub><sup>*</sup> in lake waters are controlled by both physical processes, changing temperatures (equation 4), 
 ```math
 4.logK_c = 13.870 - 0.04035T - \frac{3059}{T}
-```
 which, over annual lake temperatures of 0-25&deg;C, varies $K_c$, the solubility constant of calcium carbonate, from -8.35 to -8.42 (Plummer and Busenburg,1982), as well as biologic processes, Dissolved Organic Carbon (DOC) concentration (Jonsson et al., 2003), and photosynthesis decreasing available CO<sub>2</sub> (Stumm & Morgan, 1970, p. 429, Talling, 1976; Thompson & Ferris, 1990).  
 Combining all relevant variables from the equations 1-4 leads to the following equation for the saturation state of calcite,
 ```math
 5.\;\alpha_{CaCO_3} = {\frac{[Ca^{2+}]*pCO_2*K_1*K_2*K_H}{[H+]^2*K_c}}
 ```  
-  In environments in which $\alpha_{CaCO_3}$ > 1 precipitation of CaCO<sub>3</sub> is expected, though CaCO<sub>3</sub> precipitation often doesn't occur until $\alpha_{CaCO_3}$ far exceeds 1.  
+  In environments in which &alpha;CaCO<sub>3</sub> > 1 precipitation of CaCO<sub>3</sub> is expected, though CaCO<sub>3</sub> precipitation often doesn't occur until &alpha;CaCO<sub>3</sub> far exceeds 1.  
 
 ### *2.2 &Delta;47 and &delta;18O thermometry*
 Carbonate clumped isotope thermometry is a paleothermometer based on the 'clumping' of <sup>13</sup>C-<sup>18</sup>O bonds within  CaCO<sub>3</sub (Eiler, 2007). This 'clumping' (equation 6) is inversely dependent upon temperature (Eiler, 2007). This technique has the advantage over traditional stable isotope thermometry in that it records temperature independent of the isotopic composition of waters from which carbonates grow (Eiler, 2011).
@@ -69,7 +68,7 @@ Carbonate clumped isotope thermometry is a paleothermometer based on the 'clumpi
 6.\;Ca^{13}CO_3 + Ca^{12}C^{18}O^{16}O_2 = Ca^{13}C^{18}O^{16}O_2 + Ca^{12}C^{16}O_3(Eiler,2011)
 ```
 Recently, the clumped isotope paleothermometer has been researched to better understand if precipitation rate, water ionic strength, *I*, and *pH* affect its temperature calibration (Tang et al., 2014, Watkins et al., 2013). Further, there is debate as to whether kinetic isotope effects (KIE) can change the &Delta;47 values of carbonates (Tang et al., 2007, Daeron et al., 2019).  
-The &delta;18O composition of CaCO<sub>3</sub> is defined by the &delta;18O composition and temperature of formation waters (Urey, 1947;, Epstein et al., 1951). &delta;18O value of lake water is controlled by the &delta;18O composition of meteoric waters and groundwater. The &delta;13C composition of aCO<sub>3</sub> is largely controlled by the &delta;13C of dissolved inorganic carbon (DIC) (Romanek et al., 1992), of which the largest reservoir at surface water *pH* is HCO<sub3</sub><sup>-</sup>.  
+The &delta;18O composition of CaCO<sub>3</sub> is defined by the &delta;18O composition and temperature of formation waters (Urey, 1947;, Epstein et al., 1951). &delta;18O value of lake water is controlled by the &delta;18O composition of meteoric waters and groundwater. The &delta;13C composition of CaCO<sub>3</sub> is largely controlled by the &delta;13C of dissolved inorganic carbon (DIC) (Romanek et al., 1992), of which the largest reservoir at surface water *pH* is HCO<sub3</sub><sup>-</sup>.  
 The temperature dependent fractionation of &delta;18O between the aqueous and solid phase can be defined by equation 7 (Kim & O'Neil, 1997). Recently, this equation has been questioned as samples from natural environments in equilibrium have diverged from equation 7. Daeron (2019) suggests equation 8 as a more accurate equilibrium defined fractionation.  
 ```math
 7. \ 1000ln(\alpha) = \frac{18.03*10^3}{T} - 32.42 (KimO'Neil, 1997)
@@ -113,10 +112,12 @@ Water temperatures measured from May to October, 2019 were similar to values mea
 
 Figure 2: Surface temperature (A) and temperature with depth (B) measured in 2019 in FGL. May temperatures from 1965 (Brunskill, 1969a) were used in place of actual data from this period of time in 2019. d18O and D2H values from FGL averaged around -11 and -70 permil(VSMOW) (C). Surface waters in FGL are slightly depleted (D) due to evaporation. 
   
-&delta;18O values of FGL waters were measured to range from `r Min_Water_Isotope` to `r Max_Water_Isotope` ${{^0}/_{00}}_{(VSMOW)}$. Our entire data set yielded an average summer $\delta^{18}O$ value of `r round(mean_d18O_summer_water_vsmow[1],2)` ${{^0}/_{00}}_{(VSMOW)}$. The effect of the isotopic enrichment due to evaporation in FGL is largest in surface waters (Fig. 2B). Surface waters, sampled from 0.5 and 2.5 meters depth, yielded an average of `r round(mean_surface_water_isotopes$mean,2)` ${{^0}/_{00}}_{(VSMOW)}$. In comparison to our lake water, Ledford & Lautz (2015) reported groundwater $\delta^{18}O$ values ranging from -10.3 to - 7.8 ${{^0}/_{00}}_{(VSMOW)}$ at a site ~15 km from ours.  
-The meteoric water line of FGL is defined by a smaller slope, `r water_slope`, in comparison to the expected global meteoric water line slope of 8 (Craig, 1961). Global studies of lacustrine systems have confirmed that, similar to FGL, lacustrine water is more isotopically enriched in both $\delta D$ and $\delta^{18}O$ (Horton et al., 2016) compared to global meteoric waters. The global lacustrine water line can be described by equation 9 (Horton et al., 2016).
-$$9. \delta^2H = 5.16*\delta^{18} O - 36.57(Horton, 2016) $$ 
-Water samples from May to August, 2019 were analyzed for total anion and cation content. Concentrations varied seasonally, but were ~10 mM/l and 1 to 2 mM/l for $Ca^{2+}$ and $HCO_3^-$, respectively. $Ca^{2+}$ concentrations varied throughout the Summer by ~0.5 mM/l. The lowest concentrations of $Ca^{2+}$ was 9.2 mM/l and occurred on the hottest day sampled, July 11 in surface waters.  
+&delta;18O values of FGL waters were measured to range from `r Min_Water_Isotope` to `r Max_Water_Isotope` permil-VSMOW. Our entire data set yielded an average summer &delta;18O value of `r round(mean_d18O_summer_water_vsmow[1],2)` permil-VSMOW. The effect of the isotopic enrichment due to evaporation in FGL is largest in surface waters (Fig. 2B). Surface waters, sampled from 0.5 and 2.5 meters depth, yielded an average of `r round(mean_surface_water_isotopes$mean,2)` permil-VSMOW. In comparison to our lake water, Ledford & Lautz (2015) reported groundwater &delta;18O values ranging from -10.3 to - 7.8 permil-VSMOW at a site ~15 km from ours. 
+The meteoric water line of FGL is defined by a smaller slope, `r water_slope`, in comparison to the expected global meteoric water line slope of 8 (Craig, 1961). Global studies of lacustrine systems have confirmed that, similar to FGL, lacustrine water is more isotopically enriched in both $\delta D$ and &delta;18O (Horton et al., 2016) compared to global meteoric waters. The global lacustrine water line can be described by equation 9 (Horton et al., 2016).
+```math
+$$9. \delta^2H = 5.16*\delta^{18} O - 36.57(Horton, 2016)
+```
+Water samples from May to August, 2019 were analyzed for total anion and cation content. Concentrations varied seasonally, but were ~10 mM/l and 1 to 2 mM/l for Ca<sup>2+</sup> and $HCO_3^-$, respectively. Ca<sup>2+</sup> concentrations varied throughout the Summer by ~0.5 mM/l. The lowest concentrations of Ca<sup>+</sup> was 9.2 mM/l and occurred on the hottest day sampled, July 11 in surface waters.  
 
 
 Figure 3: Major cation and anion concentrations from the water column of FGL from samples from May, 2019, to September, 2019. Concentrations increase linearly as depth increases towards the chemocline.
