@@ -10,7 +10,7 @@ My Master's Thesis focused on analyzing the chemistry, isotopically, of calcite 
 We undertook field work, collection of water and calcite samples, in addition to laboratory chemistry work, analysis of the calcite, in addition 
 to data analysis.
 
-[Link to Self](https://github.com/micahwiesner67/MS_Thesis_Geochemistry/README.md)
+[Link to Self](https://github.com/micahwiesner67/MS_Thesis_Geochemistry/)
 
 
 
