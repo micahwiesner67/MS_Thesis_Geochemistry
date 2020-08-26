@@ -5,7 +5,7 @@
 \begin{document}
 
 \begin{align*}
-  \sqrt{\frac{(\Delta_{47} - 0.258)}{.0383*10^6}} = T (K)
+  \sqrt{\frac{.0383*10^6}}{(\Delta_{47} - 0.258)} = T (K)
 \end{align*}
 
 \end{document}
