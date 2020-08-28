@@ -1,0 +1,12 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{align*}
+  \nopagecolor
+  \Omega = \frac{[Ca^{2+}][CO_3^{\;2-}]}{K_{sp}}
+\end{align*}
+
+\end{document}
