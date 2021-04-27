@@ -1,0 +1,420 @@
+---
+title: "Abstract"
+author: ''
+date: ''
+output:
+  pdf_document: default
+  fig_caption: no
+  indent: yes
+  fig_crop: no
+  toc: false
+  word_document: default
+  html_document:
+    df_print: paged
+subtitle: ''
+bibliography: formatting/Ref.bib
+csl: formatting/geochimica.csl
+#toc: no
+#lof: no
+fontsize: 12pt
+geometry: left=1 in, right=1 in, top = 1 in, bottom=1 in
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage{setspace}
+- \usepackage{wasysym}
+- \AtBeginDocument{\pagenumbering{gobble}}
+- \renewcommand{\abstractname}{\vspace{-\baselineskip}}
+linestretch: 2
+fig_caption: no
+abstract: \doublespacing Lacustrine carbonates are important paleoclimate archives,
+  but unknowns in the seasonal timing and depth of precipitation obscure the interpretation
+  of temperatures associated with them. The clumped isotope paleothermometer records
+  the formation temperature $T(\Delta_{47})$ of carbonates. This study examines a
+  set of lacustrine carbonates formed in the water column, in addition to carbonate
+  from a sediment core, to better understand the depth and seasonality of carbonate
+  formation in a lacustrine setting. We test that, regardless of season and formation
+  temperature, lacustrine carbonates form in isotopic equilibrium with respect to
+  $\Delta_{47}$ and $\delta^{18}O$ fractionation. Further, we account for the effect
+  of our sampling regime, glass-fiber filters mixed with water column calcite, on
+  $\Delta_{47}$, $\delta^{18}O$ and $\delta^{13}C$. Carbonate and water was sampled
+  from Fayetteville Green Lake at depths of 0.5, 2.5, 5, 7.5, 10, and 15 meters below
+  the lake surface. Short core segments, from no deeper than 12 *cm* depth, were analyzed
+  to compare against water column calcites. Water column carbonate was present throughout
+  the entire season with maximum concentrations of 1.4 *mg/l* sampled on July 11,
+  2019 at 7.5 meters depth. Average water column carbonate $\delta^{18}O$ was -9.64
+  $\pm$ 0.32‰ $_{(VPDB)}$ while the average $\delta^{18}O$ from surface water was
+  -9.10 $\pm$ 0.20‰ $_{(VSMOW)}$. $T(\Delta_{47})$ from core carbonate was calculated to be 24 $\pm$ 7&deg;C and $\delta^{18}O$ from core carbonate was -9.80 $\pm$ 0.22‰ $_{VPDB}$. Our results suggest that even in lakes prone to whiting events and large temperature and calcite saturation fluctuations, carbonates precipitate in isotopic equilibrium with respect to  $\delta^{18}O$ and  $\Delta_{47}$. T($\Delta_{47}$) recorded in the sediments of Fayetteville Green Lake is indistinguishable from modern summer mean surface water temperatures recorded in June, July, and August. This largely supports the work of Hren and Sheldon in showing that T($\Delta_{47}$) is a warm season proxy and reflects the season over which the bulk of the carbonate preserved in sediments is precipitated. Carbonate clumped isotope results suggest lacustrine carbonate forms in the upper 2.5 m of the water column. 
+---
+
+```{r setup, echo = FALSE, include=FALSE, message = FALSE}
+library(tidyverse)
+library(kableExtra)
+library(gridExtra)
+library(tinytex)
+library(lubridate)
+
+#source('functions.R')
+source('important_numbers.R')
+```
+
+\newpage
+\huge
+\begin{center}
+Carbonate Paleothermometry in Fayetteville Green Lake, New York
+\linebreak
+\small
+By
+\linebreak
+Micah Wiesner
+\linebreak
+B.S. Geophysics, State University of New York at Geneseo, 2016
+\linebreak
+THESIS  
+\linebreak
+Submitted in partial fulfillment of the requirements for the degree
+\linebreak
+of Master of Science in Earth Science 
+\linebreak
+Syracuse University
+May 2021  
+\end{center}
+\normalsize
+
+\pagebreak
+\begin{center}
+Copyright \textcopyright Micah Wiesner 2021
+\linebreak
+All Rights Reserved
+\end{center}
+  
+\newpage
+
+```{=latex}
+\pagenumbering{roman}
+\setcounter{page}{5}
+% Trigger ToC creation in LaTeX
+\tableofcontents
+\setcounter{tocdepth}{1}
+```
+
+\newpage
+
+```{=latex}
+% Trigger LoF creation in LaTeX
+\listoffigures
+```
+\newpage  
+
+\pagenumbering{arabic}
+\setlength\parindent{24pt}\setlength{\parskip}{0.0pt plus 1.0pt}
+# Introduction
+\indent
+Geochemical approaches to interrogating the sedimentary archive yield remarkable insight into past environmental conditions across the continents and oceans alike, yet accurate reconstruction of terrestrial temperatures has remained one of the grand challenges to deciphering the paleoclimate record. The lacustrine sedimentary record of marl lakes and other carbonate forming lakes offers great potential in estimating terrestrial temperatures. This carbonate records both the formation temperature $T(\Delta_{47})$ in the relative enrichment of the $^{13}C$-$^{18}O$ bonds, $\Delta_{47}$, [@Eiler_2007] and the formation temperature from the enrichment of $\delta^{18}O$ from $H_2O$-$CaCO_3$, assuming $\delta^{18}O$ of formation waters is known [@McCrea_1950; @Kim_1997]. 
+
+Although researchers have begun to tease apart how mean annual water temperature (MAWT) at the surface relates to  mean annual air temperature (MAAT) in lakes [@Hren_2012] it is still unclear how recorded carbonate formation temperatures relate to mean annual air temperature. We presume that $T(\Delta_{47})$, formation temperatures derived from $\Delta_{47}$ recorded in sediment cores, will exceed MAAT as aqueous $CaCO_3$ supersaturation within northern hemisphere lakes reaches its highest values from late May to October [@Stabel_1986;  @Brunskill_1969b], a time in which temperatures are in excess of MAAT.  
+\indent
+There are no studies of clumped isotopes in modern lake water column carbonates, only a compilation of modern temperature data with clumped isotope records from cores [@Hren_2012] and a few samples ranging from the Pliocene to the Eocene [@Huntington_2010]. This study seeks to straddle the unknowns associated with ancient lake settings and idealized laboratory environments by utilizing Fayetteville Green Lake (FGL) (Fig. 1) as a natural laboratory to further probe carbonate paleothermometry. The concentration of calcite in the upper part of the water  column in Fayetteville Green Lake  reaches up to 1.6 *mg/l* seasonally [@Brunskill_1969b], making it an ideal natural setting to further test the clumped isotope paleothermometer, in addition to exploring whether oxygen isotope fractionation occurs in equilibrium [@McCrea_1950; @Kim_1997]. Our objectives are to explore the accuracy of each proxy, the clumped isotope thermometer and the stable isotope thermometer of $^{18}O$, to determine the seasonal signal recorded in sediment cores, and how seasonal signals for each proxy relate to MAAT in a lake. 
+\newpage  
+
+# Background  
+## Lacustrine Carbonate Formation  
+\indent
+Lacustrine carbonates form throughout the year following the basic carbonate reaction,
+$$1.\;[Ca^{2+}] + [{CO_3^{2-}}] <-> {CaCO_3(s)} $$
+in which $[Ca^{2+}]$ and $[CO_3^{2-}]$ are ionic activies at equilibrium [@Lerman_1978]. The saturation state and amount of calcite precipitated is controlled directly by the $[CO_2]$ dissolved in lake waters in the form of $H_2CO_3^*$ and the *pH* of the water in the following (equation 2). 
+$$2.\;\frac{[CO_3^{2-}][H^+]^2}{[H_2CO_3^*]} = K_1 K_2$$
+$$3.\;\frac {[H_2CO_3^*]}{p_{CO_2}} = K_H$$
+Henry's Law (equation 3) determines the amount of $H_2CO_3^*$ in solution in the water column, though $H_2CO_3^*$ in most lake waters is supersaturated [@Cole_1994]. 
+Dissolved $CO_2$ concentrations, $[H_2CO_3^*]$ in lake waters are controlled by changing temperatures (equation 4), 
+$$4.\;logK_c = 13.870 - 0.04035T - \frac{3059}{T}$$
+which over annual lake temperatures of 0-25&deg;C, varies $K_c$, the solubility constant of calcium carbonate, from -8.35 to -8.42 [@Plummer_1982]. Further, photosynthesis decreases available $CO_2$ increasing the saturation of calcium carbonate [@Stumm_1970; @Talling_1976; @Thompson_1990], while dissolved organic carbon (DOC) [@Jonsson_2003] competes with inorganic carbon when calcium carbonate is in the aqueous form. Combining all relevant variables from the equations 1-4 leads to the following equation for the saturation state of calcite, 
+$$5.\;\alpha_{CaCO_3} = {\frac{[Ca^{2+}]*pCO_2*K_1*K_2*K_H}{[H+]^2*K_c}}$$
+In environments in which $\alpha_{CaCO_3}$ is >1 precipitation of $CaCO_3$ is expected, though $CaCO_3$ precipitation often doesn't occur until $\alpha_{CaCO_3}$ far exceeds 1. $CaCO_3$ precipitation can be inhibited by high concentrations of $PO_4^{2-}$ [@Burton_1990] and $Mg^{2+}/Ca^{2+}$ ratio [@Sanchez_2009]. 
+
+## $\Delta_{47}$ and $\delta^{18}O$ thermometry
+\indent
+Carbonate clumped isotope thermometry is based on the 'clumping' of $^{13}C$-$^{18}O$ bonds within  $CaCO_3$ [@Eiler_2007]. This clumping (equation 6) is inversely dependent upon temperature [@Eiler_2007]. This technique has the advantage over traditional stable isotope thermometry in that it records temperature independent of the isotopic composition of waters from which carbonates grow [@Eiler_2011].
+$$6.\;Ca^{13}CO_3 + Ca^{12}C^{18}O^{16}O_2 = Ca^{13}C^{18}O^{16}O_2 + Ca^{12}C^{16}O_3(Eiler,2011)$$
+Recent research has focused on understanding if precipitation rate, water ionic strength, *I*, and *pH* affect the clumped isotope temperature calibration [@Tang_2014; @Watkins_2013]. In addition, there is debate as to whether kinetic isotope effects (KIE) can change the $\Delta_{47}$ values of carbonates [@Tang_2014; @Daeron_2019].  
+\indent
+The $^{18}O$ abundance of $CaCO_3$ is dependent upon the $^{18}O$ composition and temperature of formation waters [@Urey_1947; @Epstein_1951]. $^{18}O$ of lake water is controlled by the $^{18}O$ composition of meteoric waters and groundwater as well as the evaporation and precipitation balance of the lake. The $^{13}C$ composition of $CaCO_3$ is largely controlled by the $^{13}C$ of dissolved inorganic carbon (DIC) [@Talbot_1990], of which the largest reservoir at surface water *pH* is $HCO_3^-$.  
+\indent
+The temperature dependent fractionation of $^{18}O$ between the aqueous and solid phase can be defined by equation 7 [@Kim_1997]. Daeron et al. (2019) recently challenged Kim and O'Neil's (1997) equilibrium fractionation curve with a new relationship (eq. 8) defined by data from two very slowly crystalizing isotopic end-member samples that better explain the apparent divergence of some carbonate developed at equilibrium with equation 7.  
+$$7. \ 1000ln(\alpha) = \frac{18.03*10^3}{T} - 32.42(KimO'Neil, 1997) $$ 
+$$8. \ 1000ln(\alpha) = \frac{17.57*10^3}{T} - 29.13(Daeron, 2019) $$ 
+
+## Study Area
+\indent
+Fayetteville Green Lake, NY (Fig. 1A, 1B), is a bedrock plunge pool formed by differential erosion driven by channelized flow of glacial meltwater from the receding Laurentide ice sheet flowing east into the Mohawk Valley [@Hilfinger_1997]. The channel and plunge pool likely formed ~13,000 years ago during the recession of the Last Glacial Maximum [@Hilfinger_2001], and is adjacent to Round Lake, another glacially formed plunge pool. FGL is a meromictic lake. Due to its small surface area and impressive depth (52 meters), as well as an extremely dense saline layer, the upper layer of the lake (mixolimnion) does not mix with the lower layer (monimolimnion) [@Brunskill_1969b].  
+\indent
+The mean annual air temperature, MAAT, was calculated to be 9°C (Fig. 1C) from 1938-2018, while the mean annual (surface) water temperature MAWT at FGL from 1965 to 1967 was 12°C (Fig. 1D). Surface water temperatures in FGL range from 0-25&deg;C by season @Brunskill_1969a. These temperatures are driven by a 27°C change in mean air temperature annually and drive the degassing of $CO_2$ from the water column. 
+&nbsp;
+``` {r label, fig.cap = 'Study Area', echo = FALSE, fig.align = 'center', message=FALSE}
+knitr::include_graphics("plots/Study_Area_Figure.pdf")
+```
+\begin{singlespace}
+(A,B) Fayetteville Green Lake is located in upstate New York. (C) Minimum and Maximum air temperature were averaged for each day from 1937 to 2018 from Syracuse Hancock Airport, Site USW00014771 [NOAA], ~15 km from FGL. (C) MAAT at FGL is 9°C. (D) Surface water temperatures measured by Brunskill from 1965-1967 show FGL surface water temperatures range from 0-25°C annually with a mean of 12°C.
+\end{singlespace}
+
+\newpage
+Sedimentation in FGL is dominated by Summer calcite deposition. Brunskill (1969b) showed calcite to account for 90% of total deposition from June-October. Rates of sedimentation were calculated to be 0.11 $mm*yr^{-1}$ [@Brunskill_1969b], 0.14 $mm*yr^{-1}$ [@Takahashi_1968], and 0.258 $mm*yr^{-1}$ [@Ludlam_1969]. Brunskill (1969a) gives a water residence time of 1-1.7 years for the mixolimnion and 2-3 years for the entire lake.  
+\indent
+In addition to annual whiting events, periods of massive calcite precipitation during which the lake surface appears white, the lake constantly precipitates calcite throughout the water column. Warming during the summer months reduces solubility of $CO_2$ accompanied by a rise in *pH* and an increased saturation of calcite in the water column. Microbial forcing is an additional explanation to the formation of calcite within the water column [@Thompson_1990] as the seasonal increase in cyanobacteria and picoplankton population corresponds with calcite precipitation [@Dittrich_2004]. 
+Fayetteville Green Lake also contains thrombolytic tufa deposits [@Demott_2020]. These thrombolites are composed of microcrystalline calcite, likely deposited by Synecchoccus cells living in microbial mats at the edge of the lake [@Thompson_1990]. 
+
+## MAAT Calculation: Transfer of Heat Between Air and Water
+\indent
+The study of continental paleotemperatures derived from lacustrine settings is limited by our ability to determine annual temperature range (Powers, 2004), elevation at the time of deposition, (Livingstone et al., 1999), and lake size (Winslow et al., 2015) from the geologic record. In practice, we need to deduce MAAT from a single lake water temperature calculated from a calcite paleothermometer, that itself has a strong seasonal temperature bias based on the seasonal timing of carbonate formation (Hren and Sheldon, 2012). In temperate lakes, for example, carbonate formation is heavily weighted towards the summer months, which results in recorded temperatures warmer than mean annual air temperature (MAAT) (Hren and Sheldon, 2012). 
+Thus, to relate seasonal lake water temperature to mean annual air temperature, empirical transfer functions must be employed. In the context of warm month carbonate formation, the most appropriate transfer functions relate the  seasonal water temperatures in spring and summer, respectively, to MAAT (eq. 9-10, in which $T_w$ is the mean lake water temperature, or in the case of paleotemperatures the carbonate formation temperature, during a given season): 
+
+$$9.\ [JJA]\ MAAT (\circ C) = -0.0055*Tw^2 + 1.476*Tw-18.915 $$ 
+$$10.\ [AMJ]\ MAAT (\circ C) = -0.0097*Tw^2 + 1.379*Tw-8.23 $$ 
+
+Although the actual timing of carbonate formation is not precisely constrained in the context of a paleoclimate study, MAATs calculated using carbonate formation temperatures bracket the most likely MAAT and is the most general application in a paleoclimate study in which lake size, latitude, or elevation are poorly constrained.
+
+\newpage  
+
+# Methods  
+## Field Work  
+\indent
+Every two weeks from May 2019 to October 2019 water and calcite from Fayetteville Green Lake was sampled. Calcite laden water was pumped from various depths through a filter apparatus where calcite was captured on 142 *mm* glass-fiber filters with > 1 $\mu{m}$ particle retention while the remaining water was pumped back down to the depth it was sampled. Generally, samples were collected at 0.5, 2.5, 5, 7.5, 10, and 15 meters, but occasional inclement weather, technical difficulties, or time constraints did not permit the full depth sampling on each trip. The total volume of water sampled at each depth was measured using a household water flow meter and ranged from 30 *l* to 175 *l* depending on the date and depth sampled. Temperature was measured from post-filter outflow using a digital thermometer with a precision of $\pm$ 0.1 &deg;C. Multiple water samples were taken at each depth and water isotopic content and major anions and cations were measured from each respective sample. 
+
+## SEM 
+\indent
+The contents of the glass-fiber filters were analyzed using a *JCM-6000Plus* Scanning Electron Microscope. Grain morphology, specifically the size of calcite crystals, was measured for multiple filters and multiple depths (Fig. 7). We assumed that the majority of calcite produced in the water column would be between 1 and 50 $\mu{m}$ in length. 
+
+## Core
+\indent
+A Core segment was collected from the center of FGL in December, 2012 by a research group at Cornell University using a gravity corer and the methodology outlined in @Brown_2015. This sediment core was segmented every 0.5 *cm* and each segment was analyzed for the number of varves. Each 0.5 *cm* segment was aggregated and homogenized. Two segments of this core were used in our analysis, the segment spanning from 2.5-3 *cm* and from 11.5-12 *cm*. Carbonate and organic material in this core passed through the chemocline prior to settling and compacting in the anaerobic bottom waters of FGL. 
+
+## Water Chemistry and Water Isotope Analysis 
+\indent
+In concert with calcite sampling, water samples were collected from each sampling depth. Samples were collected in 60 *mL* polyethylene bottles, after being filtered through a 1 $\mu{m}$ glass-fiber filter. Bottles were filled to contain no headspace to minimize isotopic fractionation with air and were stored in a refrigerator at ~2°C. Water samples were analyzed for total major anion and cation water chemistry using a Dionex Ion Chromatograph and the methodology outlined in @Ledford_2015. Using the IC results, $HCO_3^-$ was calculated for each depth to satisfy the charge balance of each sample. $HCO_3^-$ titration data provided by Nick LaRusso and Svetoslava Todorava (Environmental Engineering, Syracuse University) has shown that this method, which utilizes a charge balance  to calculate $HCO_3^-$ to be consistent and accurate within this setting.  
+\indent  
+Oxygen and hydrogen stable ratios in water were measured on a *Picarro L2040i* at the University of Wrocław following the procedures outlined by Coplen and Wassenaar (2015).  Measured values were normalized and corrected based on repeated in-run measurement of standards USGS-46, USGS-47, and USGS-48.
+
+## Carbonate Stable Isotope Analysis 
+\indent
+Because the calcite is trapped within the matrix of the glass-fiber filter, samples were crushed along with the accompanying glass-fiber filter using either a *Retsch Planetary Ball Mill Type PM400* or a *Spex* ball mill with alumina ceramic or tungsten carbide vessels. Care was taken to mill samples for no more than 120 seconds as carbonate exposed to intense heat during sample preparation shows reset $\Delta_{47}$ values [@Staudigel_2019]. The percent carbonate of the aggregate glass fiber filter and sample was measured by calcimetry in which $CO_2$ evolved from a known mass of synthetic carbonate was correlated to measured pressure. 
+The stable isotope composition of a suite of carbonates, $\delta^{13}C$ and $\delta^{18}O$, was measured at the University of Washington’s Isolab using a Kiel III Carbonate Device coupled to a Finnigan Delta Plus isotope ratio mass spectrometer (IRMS) for a dual-inlet based $\delta^{13}C$ and $\delta^{18}O$ measurement. The Kiel III Carbonate Device reacts carbonate samples of ~100 $\mu{g}$ with $H_3PO_4$  for 4.5 minutes.  Water vapor from the evolved $CO_2$ is removed and the $CO_2$ is analyzed with a mass spectrometer to determine the $\delta^{18}O$ and $\delta^{13}C$ relative to a reference gas. Samples were analyzed in conjunction with standards *C1*, *C2*, and *C64* (University of Washington) which had $\delta^{13}C$ values of 2.54, -48.99, and, -2.15‰ $_{(VPDB)}$ and $\delta^{18}O$ values of -0.42, -16.47, and -15.34‰ $_{(VPDB)}$, respectively. Another suite of carbonates was measured at the University of Michigan on a Kiel IV coupled to a MAT253 using a reaction time of 8 minutes.
+
+## Clumped-Isotope Analysis 
+\indent
+The majority of samples were a mixture of carbonate, and glass-fiber filter material ranging in $CaCO_3$ content from ~2-5%. In addition to these samples, 7 analyses from 2 sections of FGL sediment core, approximately 50% $CaCO_3$ content, were also analyzed. 10 water column carbonates and
+2 segments of sediment core were selected for clumped isotope ($\Delta_{47}$) analysis at the University of Washington IsoLab. Sample preparation methods followed @Burgener_2016, and data processing methods were modified after @Schauer_2016; analytical details, data, and data-processing scripts can be found in the EarthChem data repository. For each analysis, 6-8 *mg* of $CaCO_3$ powder, and the accompanying glass-fiber filter, was reacted in a common $H_3PO_4$ bath at 90°C for between 10 and 30 minutes. Resulting $CO_2$ from the reaction was purified through cooled gas traps of -80°C (ethanol and liquid nitrogen) and a Porapak Q trap (50/80 mesh, 122 cm long, 6.35 cm OD) at -10 to -20°C and sealed in a pyrex tube. Gas within these tubes was then transferred to a 10-port Thermo MAT 253 isotope ratio mass spectrometer with 6 faraday cups (m/z 44-49) for $\delta^{13}C$, $\delta^{18}O$, and $\Delta_{47}$ measurement. $^{13}R$, $^{18}R$, and $^{17}R$ values were calculated using $^{17}O$ correction parameters from @Brand_2010. $\delta^{18}O$ carbonate and $\delta^{13}C$ were converted to VPDB scales using internal Isolab laboratory standards. The data were screened based on a series of thresholds for pressure baseline (PBL), number of cycles, bellows pressure, bellows mismatch, $\delta45$ standard deviation, $\delta46$ standard deviation, $\delta47$ standard deviation, and $\delta48$ standard deviation. Replicate analyses, numbering 2-7 replicates, were completed on all samples. Each day, at minimum one calcium carbonate reference material was run (ETH 1-4 [@Bernasconi_2018] or in-house standards including reagent grade calcites C64, C2, 20C_9 and a Porites coral). $\Delta_{47}$ values were placed on the carbon dioxide equilibrium scale (CDES) using $CO_2$ heated to 1000°C and $CO_2$ equilibrated with water at 60°C and 4°C. T($\Delta_{47}$) values were calculated from sample mean $\Delta_{47}$ values using an acid fractionation factor of 0.088 and the @Petersen_2019 calibration, and reported with 95% confidence interval.  
+\indent
+The $\Delta_{47}$ values were normalized using a suite of carbonate standards over a three-year period of measurement which includes a large proportion of data generated by @Kelson_2017, and during which ETH standard values used in interlaboratory comparison [@Bernasconi_2018] were generated. This correction is more optimal than ETH standards because of the abundance of CDES gas data in comparison to ETH, the much smaller range of $\Delta_{47}$ and $\delta47$ values of ETH carbonates compared to CDES gases, and large variability in $\Delta_{47}$ and $\Delta^{17}O$ of ETH-1 and ETH-2 observed in the University of Washington. The magnitude of the correction is 0.01-0.02‰.
+
+\newpage  
+
+# Results 
+## Water Temperature, Isotopes, and Chemistry 
+\indent
+Water temperatures measured from May to October, 2019 were similar to values measured by @Brunskill_1969a. Summer (JJA) surface water temperatures ranged from 20 - 25&deg;C. The Summer surface maximum occurred in mid July and was 25&deg;C.  
+```{r label1, echo =FALSE, fig.cap = 'Water Summary', fig.align = 'center', message=FALSE, warning=FALSE}
+knitr::include_graphics("plots/fig2new.pdf")
+```
+
+\setstretch{1.0} (A, B) Surface temperature and temperature with depth measured in 2019 in FGL. May temperatures from 1965 [@Brunskill_1969a] were used in place of actual data from this period of time in 2019. (C) $\delta^{18}O$ and $\delta{D}$ values from FGL averaged around -9.4 and -67‰ $_{(VSMOW)}$, respectively. (D) Surface water $\delta^{18}O$ in FGL is slightly enriched in comparison to deeper waters due to evaporation.\par
+
+\setstretch{2.0}
+$\delta^{18}O$ values of FGL waters were measured to range from `r Min_Water_Isotope` to `r Max_Water_Isotope`‰ $_{(VSMOW)}$. Our entire data set yielded an average summer $\delta^{18}O$ value of `r mean_water_isotopes`‰ $\pm$ `r mean_water_isotopes_two_se`‰ $_{(VSMOW)}$. Isotopic enrichment due to evaporation is greatest in FGL surface waters (Fig. 2D). Surface waters, sampled from 0.5 and 2.5 meters depth, yielded an average of `r mean_surface_water_isotopes_mean`‰ $\pm$ `r mean_surface_water_isotopes_two_se` $_{(VSMOW)}$. In comparison to our lake water, @Ledford_2015 reported groundwater $\delta^{18}O$ values ranging from -10.3 to -7.8‰ $_{(VSMOW)}$ at a site ~15 km from ours.  
+\indent
+The meteoric water line of FGL is defined by a smaller slope, `r water_slope`, in comparison to the expected global meteoric water line slope of 8 [@Craig_1961]. Global studies of lacustrine systems show that, similar to FGL, lacustrine water is more isotopically enriched in both $\delta D$ and $\delta^{18}O$ [@Horton_2016] compared to global meteoric waters. The global lacustrine water line can be described by equation 11 [@Horton_2016].
+$$11. \delta^2H = 5.16*\delta^{18} O - 36.57 $$ 
+Water samples from May to August, 2019 were analyzed for total anion and cation content. Concentrations varied seasonally, but were ~10 mM/l and 1 to 2 mM/l for $Ca^{2+}$ and $HCO_3^-$, respectively. The lowest concentrations of $Ca^{2+}$ was occurred on July 11 in surface waters.  
+
+```{r label2, echo =FALSE, fig.cap = 'Water Chemistry', fig.align = 'center', message=FALSE, warning=FALSE}
+knitr::include_graphics("plots/Water_Chemistry_Depth_mMol.pdf")
+```
+\begin{singlespace}
+Major cation and anion concentrations from the water column of FGL from samples from May, 2019, to September, 2019. Concentrations increase as depth increases. Brunskill (1969b) and Havig (2017) documented the chemocline to be at 15-20 meters depth.
+\end{singlespace}
+
+```{r label3, echo =FALSE, fig.align = 'center', message=FALSE, warning=FALSE}
+#knitr::include_graphics("plots/Water_Iso_Table.pdf")
+knitr::include_graphics("tables/table1_water.pdf")
+```
+\begin{singlespace}
+Table 1: Water isotope values from summer 2019 in FGL. Measurement uncertainty of $\delta^{18}O$ was 0.2‰ and 2‰ for $\delta{D}$.
+\end{singlespace}
+
+From June until July water column concentrations of calcite increased. The highest water column concentration of calcite occurred on July 11, 2019 at 7.5 meters depth (Fig. 4) and was ~1.4 *mg/l*. This largely agrees with Brunskill (1969b) who found that maximum crystal concentrations generally coincided with the thermocline depth. Brunskill and Ludlam (1969b) found a density increase of 0.3 $mg*cm^-3$ to accompany the thermocline. This density barrier explains the increased calcite concentration as calcite crystals slow down prior to passing this layer. 
+```{r label4, echo =FALSE, fig.cap = 'Crystal loads', fig.align = 'center', message=FALSE, warning=FALSE}
+knitr::include_graphics("plots/Crystal_Load_Plot.pdf")
+```
+\begin{singlespace}
+Crystal loads measured from June to October, 2019 yielded between 0.4 and 1.4 mg/l suspended calcite. Maximum suspended calcite concentrations were measured at 5 and 7.5 meters throughout the summer. 
+\end{singlespace}
+
+## Evaluating Empirical Transfer Functions
+\indent
+Using the summer average transfer function (JJA) with summer surface water temperature, measured 2019, gives a mean annual air temperature estimate of 12°C. 
+Using the summer average transfer function (JJA) with data from @Brunskill_1969a (measured in the summer's of 1965-1967) also yields an estimate of 12°C. Although there were not sufficient spring water temperature measurements taken in 2019 to apply to the AMJ transfer function (eq. 10) applying historical water temperature [@Brunskill_1969b] for this time period yields a mean annual air temperature estimate of 15°C. 
+Each of these estimates exceeds the actual MAAT, 9°C, calculated from daily air temperature measurements (1938-2018) recorded at NOAA weather station USW00014771 located at Syracuse Hancock International Airport.
+
+## Low % $CaCO_3$ Effect on $\delta^{18}O$, $\delta^{13}C$, and $\Delta_{47}$ in Carbonate Samples 
+\indent
+Standards analyzed with the same borosilicate glass-fiber material suggest that these standards exhibited a larger range of variability than UW’s long-term standards with respect to $\Delta_{47}$, $\delta^{13}C$, $\delta^{18}O$ (Fig. 3). Further, these standards showed a marked negative offset in $\Delta{47}$, and a positive offset in $\delta^{18}O$. It should be noted that the mass ratio of carbonate to borosilicate glass in samples analyzed in the clumped line was ~ 5% (~5-10 mg of CaCO3 to ~100-300 mg filter).
+
+Samples with less carbonate content showed a larger offset from the $\Delta_{47}$ values predicted for the range of measured lake water temperatures. The $\Delta_{47}$ offset for samples with a similar carbonate  concentration as our samples ranged from -0.01 to -0.20. The average $\Delta_{47}$ offset was -0.06‰ $_{(VPDB)}$, which yields temperatures considerably higher than measured water temperatures. In surface water temperatures of 8℃ - 30℃, an offset of -0.06 ‰yields a temperature ~20℃ higher than actual water column temperatures. 
+In our analysis, a bulk correction of 0.06‰ $_{(VPDB)}$, $\Delta_{47}$ was applied to all samples. $\delta^{18}O$ and $\delta^{13}C$ values were taken from Kiel measurements.  
+
+\newpage 
+
+``` {r label5, echo = FALSE, fig.cap = 'Analytical Corrections', fig.align='center', message=FALSE}
+knitr::include_graphics("plots/figure5.pdf")
+```  
+\setstretch{1.0}
+Calcite standards (Coral, C64, and 20C_9) mixed with glass fiber filter material was shown to increase $\delta^{18}O$ by 0.289‰ $_{(VPDB)}$ and decrease $\Delta_{47}$ by 0.063‰ $_{(VPDB)}$ in comparison to the same long-term standard values run at UW Isolab. The offset of $\delta^{13}C$ is negligible, but the variance of this measurement increased. A standard of ~ 13% calcite shows no clear offset from long term standards. Coral and C64 are long term UW Isolab standards while 20C_9 was created by @Kelson_2017.
+ 
+
+## Water column and core carbonate $\delta^{18}O$, $\delta^{13}C$, $\Delta_{47}$
+  \setstretch{2.0}
+\indent
+Water column and core carbonate $\delta^{18}O$, $\delta^{13}C$, $\Delta_{47}$ are reported in Table 2. The $\delta^{18}O$ of water column carbonates ranges from -10.00  to -7.12‰ $_{(VPDB)}$, and $\delta^{13}C$ ranges from -8.90 to -6.50‰ $_{(VPDB)}$ All water column samples analyzed on the MAT253 were corrected for the offset due to low percent carbonate. This offset was -0.06‰ $_{(VPDB)}$ for $\Delta_{47}$, and 0.289‰ $_{(VPDB)}$ for $\delta^{18}O$. $\delta^{13}C$ was not adjusted.  Using Pierce's Rejection Criterion (n = 13) sample 190626_5 was found to be an outlier based on its $\Delta_{47}$ value.  
+\indent
+Two different core sections were analyzed for $\Delta_{47}$ at 11.5-12 *cm* depth and 2.5-3 *cm* depth. Assuming a sedimentation rate 0.258 $mm*yr^{-1}$ (Ludlam, 1969) these core sections were deposited `r round(2.5/.0258,0)` and `r round(11.5/.0258,0)` years ago, thus each core is roughly representative of the current climate. $\delta^{18}O$ of core carbonates ranges from -9.90 to -9.67‰ $_{(VPDB)}$, and $\delta^{13}C$ ranges from -5.16 to -4.28‰ $_{(VPDB)}$.   
+
+
+``` {r Summarize_MAT_253, echo=FALSE, message=FALSE, fig.align = 'center'}
+knitr::include_graphics('tables/Table2_Final.PNG')
+```
+
+\begin{singlespace}
+Table 2: All water column carbonates $\Delta_{47}$ values were corrected for the low percent carbonate effect, by adding an offset term of 0.06. $\delta^{13}C$ and $\delta^{18}O$ values were not corrected for any offset as these values were measured on a Kiel III Carbonate Device coupled to a Thermo Finnigan Delta Plus; long-term standards measured in conjunction with stable isotopes on this device showed no sensitivity to low % carbonate.
+\end{singlespace}
+
+The fractionation between water-column sampled calcite and water was calculated using measured water temperatures for all data except for samples taken on May 15, 2019 and May 29, 2019 in which historical water temperature averages were taken from Brunskill (1969a). The uncertainties from these estimates based on historical data are $\pm{3}^\circ{C}$, which is notably larger than the uncertainty of measured temperatures $\pm{0.1}^\circ{C}$. The oxygen isotope fractionation in Fayetteville Green Lake is best defined by equation 12 (Fig. 6C).
+$$12. \ 1000ln(\alpha) = \frac{17.70*10^3}{T} - {30.43}$$.  
+
+\newpage
+
+```{r label6, echo=FALSE, fig.align = 'center', fig.cap = 'Oxygen Fractionation', message=FALSE, warning=FALSE}
+knitr::include_graphics("plots/fig6_final.pdf")
+```
+\begin{singlespace}
+(A) Core carbonate is considerably more enriched in $\delta^{13}C$ than modern water column carbonate while $\delta^{18}O$ of core carbonate is similar to water column samples. $\delta^{18}O$ is dependent upon the incoming precipitation and is seasonally dependent. (B,C,D) The oxygen isotope fractionation from $H_2O-CaCO_3$ was compared to Daeron and Kim $\&$ O'Neil. Three possible oxygen isotope fractionation fits were compared; assuming samples formed at the depth sampled (B), assuming samples formed at the surface of the water column prior to the date sampled with a settling rate of 2 $m*d^{-1}$ (C), and assuming samples formed at the surface of the water column prior to the date sampled with a settling rate of 1 $m*d^{-1}$ (D). 
+\end{singlespace}
+
+## Crystal Length 
+\indent
+Calcite crystal length measured using a *JCM-6000Plus* Scanning Electron Microscope yielded mean crystal lengths of 10-12 $\mu{m}$ depending on the sample. We hypothesized that crystal length would be dependent on depth as calcite precipitated at the surface could precipitate continually throughout its descent, however we found no compelling relationship between depth of sampling and crystal size (Fig. 7)
+
+\newpage 
+
+``` {r label7,echo = FALSE, fig.cap = 'Crystal length', fig.align='center', message=FALSE}
+knitr::include_graphics("plots/Crystal_Length.pdf")
+```  
+\begin{singlespace}
+(A) Calcite crystal length was measured using a JCM-6000Plus Scanning Electron Microscope on a suite of three samples, two from May 29 at 0.5 meters and 10 meters depth, and one from July 24. Sample crystal length was shown to not dependend upon depth of sampling. (B,C) Samples were surrounded by a mix of diatoms, spiculues, and glass-fiber filter material. 
+\end{singlespace}
+
+\newpage  
+
+# Discussion 
+\indent
+Few studies have utilized the clumped isotope paleothermometer of calcite on lacustrine carbonates while none, to our knowledge, have sampled in situ water column calcite. Huntington (2010, 2015) and @Lechler_2013 analyzed Miocene, Pliocene, and Eocene lacustrine carbonates to constrain plateau uplift while @Schmid_2011 and @Mering_2015 analyzed Holocene lake carbonates. Although our sampling technique resulted in challenging $\Delta_{47}$ measurements due to low percent carbonate of samples our results still: 1) confirm the surficial formation of lacustrine carbonates; 2) assess the applicability of Hren and Sheldon’s (2012) transfer function to estimate MAAT; 3) confirms the warm-season bias of the clumped isotope thermometer in lacustrine settings; and 4) assess the equilibrium formation of fast-precipitating carbonates. Due to its abundant calcite, and seasonally fluctuating temperature, Fayetteville Green Lake is an ideal setting to test these questions and provides a sharp contrast in environment to slow precipitating calcite settings thought to represent equilibrium such as Devil’s Hole Nevada [@Coplen_2007] and the Laghetto Basin [@Daeron_2019].  
+
+## % Carbonate Effect on $\delta^{18}O$ and $\Delta_{47}$
+\indent
+After correcting for the offset due to low % $CaCO_3$ on the *MAT253* and manual gas extraction line, $\delta^{18}O$ and $\delta^{13}C$ measured on the *Kiel III* and *MAT253* present comparable results. No carbonate standards mixed with GFF were measured on the *Kiel III*, but a suite of replicate analyses measured on both the *Kiel III* and *MAT253* for a given sample confirms the validity of this offset applied to $\delta^{18}O$ for samples measured on the *MAT253*. The mechanism which is causing an offset of both $\delta^{18}O$ and $\Delta_{47}$ is unclear. Preliminary data suggests that there may be a threshold (10% to 15%) of $CaCO_3$ at which these offsets are negligible (fig. 6). A long-term UW standard, Coral, mixed with GFF having ~13% $CaCO_3$ showed negligible offset in $\Delta_{47}$ and $\delta^{18}O$.
+
+## Clumped Isotope Temperatures $T(\Delta_{47})$
+\indent
+A one-way ANOVA  test was performed to determine whether or not there is a statistically significant  difference in $\Delta_{47}$ across depths. Based on the p-value of 0.48 and an f-value of 0.88, there is no difference in $\Delta_{47}$ with depth, thus the depth dependence of $\Delta_{47}$ is insignificant. $T(\Delta_{47})$ values from water column samples range from 12&deg;C to 48&deg;C. $T(\Delta_{47})$ values from cores were 23&deg;C and 24&deg;C for the 11.5-12 *cm* and 2.5-3 *cm* segment, respectively. Average $T(\Delta_{47})$ for Summer 2019 values over the entire water column carbonate dataset was calculated to be 27 $^\circ{C}$ $\pm$ 7 $^\circ{C}$, which agrees with measured summer mean (JJA) temperature of `r round(Measured_JJA_Surface_Mean,0)`°C. This gives further evidence that $T(\Delta_{47})$ from non-equatorial lacustrine carbonates records summer surface water temperatures.  
+\indent
+Three samples, 190711_7.5, 190626_15, and 190626_0.5, lack any replicate analyses. The outlier sample, 190626_5 was analyzed with four replicates. This sample yielded both enriched $\delta^{18}O$ and $\Delta_{47}$, and a depleted $\delta^{13}C$ relative to the rest of the samples. Samples affected by kinetic isotope effects, *KIE*, are generally expected to be enriched in $\delta^{18}O$ and depleted in $\Delta_{47}$ due to fast forming calcite which precipitates at the surface of a solution undergoing passive $CO_2$ degassing [@Affek_2014]. This sample contained a similar percent carbonate as other samples and thus percent carbonate was not thought to be a factor.  
+\indent  
+Core $\delta^{18}O$ values fall within the bounds set by water column samples, but it is unclear why core $\delta^{13}C$ values differ so much between water column and core samples. Havig (2017, 2018) reported water column $\delta^{13}C$ DIC values of -5 to -10 ${^0}/_{00}$ and core $\delta^{13}C$ of -3 to -5 ${^0}/_{00}$. All cores yielded high $\Delta_{48}$ values, likely from sulfur monoxide. This is presumed to be due to a high sulfur content, $SO_4^{2-}$ in the mixolimnion and $H_2S$ in the anoxic zone (Havig et al., 2017).  
+
+## Evaluation of Transfer Functions
+\indent
+As the highest calcite saturation occurs during summer months  in FGL (Brunskill 1969a) we hypothesized that the summer surface water temperature transfer function (JJA) would be best captured in the carbonate sedimentation of this system. Thus, it was expected that core and water column calcite would yield temperatures far in excess of MAAT and MAWT. Our $T(\Delta_{47})$ data from cores demonstrate that the majority of calcite sedimentation likely formed during summer maximum temperatures as suggested by @Hren_2012. Analysis of two segments of core yielded $T(\Delta_{47})$ temperatures of 24°C and 23°C, significantly higher than MAAT of 9°C. These core temperatures are indistinguishable from our measured Summer (June, July, August). Measured Summer (JJA) ranged from 20-25°C with a mean temperature of 23°C. Applying a JJA transfer function utilizing the mean core $T(\Delta_{47})$ yields a MAAT at FGL of 12°C which overestimates the true MAAT of 9°C. Further, this agrees with the instanteous crystal load data presented by Brunskill, 1969b, which showed the largest calcite precipitation occurred in June, July, and August in 1965, 1966, and 1967.  
+We presume that calcite was formed between the surface and 2.5 meters depth due to these waters being the most saturated with respect to calcite (Brunskill, 1969a) and due to the fact that temperatures deeper than 2.5 meters depth are cooler than $T(\Delta_{47})$ we measured in all water column and core samples. In JJA of 2019 the difference in water temperature between surface waters and waters at 2.5 meters depth never exceeded 3°C (Fig. 2B) and the averaged difference was 1°C. The difference between surface waters and 7.5 meters depth was much larger and ranged from 4-10°C with an average JJA difference of 6°C. Our last sampled date, October 24, showed an isothermal water column with temperatures ranging from 12°C to 14°C in the upper 15 meters. @Hren_2012 suggest that peak carbonate formation in FGL occurs at ~4 meters depth, which is unlikely as our calculations show $T(\Delta_{47})$ of carbonate sampled from cores to agree with measured surface water temperatures and $T(\Delta_{47})$ of water column calcite shows no strong depth dependence. Further, we measured the difference between surface waters and 5 meters depth to be 3-8°C. If peak carbonate formation occurred at 4 meters depth $T(\Delta_{47})$ from cores would have yielded temperatures close to 3-8°C lower than the JJA surface average of 23°C. 
+
+## Equilibrium
+\indent
+$\delta^{18}O$ fractionation was measured from a suite of data from the *MAT253* as well as the *Kiel* device. Samples with replicate analyses from different labs, but similar analytical techniques were averaged to avoid an inadvertent over representation of those sample points in subsequent statistical analysis. Using a settling rate of 1 $m*d^{-1}$ the date of sample formation was calculated to pair samples with an appropriate surface water temperature. As an example, a sample taken from 7.5 *m* depth was paired with a surface water temperature from 7.5 days prior. Surface water temperatures from dates not sampled were calculated from a 4th order polynomial fit utilizing Brunskill's summer surface water data in addition to our own surface water data. Calcite crystal formation does not continue as the samples settle through the water column based on the the lack of  difference in median crystal sizes between carbonate sampled at 0.5 meters and 7.5 meters (fig. 7).
+The settling rate chosen could affect the fractionation calculation as calcite crystals with a slower settling rate come from earlier in the season. It is possible that turbulence in surface waters could delay the settling of crystals. As Ludlam's (1969) settling rate of 2-4 $m*d^{-1}$ does not specifically account for crystal morphology, other studies have shown rectangular prisms settle at slower rates than idealized spherical grains [@Sheaffer_1987; @Leith_1987], a slower rate of 1 $m*d^{-1}$ was chosen. Further, the change in density of water at the thermocline could cause a slowdown at this boundary and result in a higher crystal load at this point.   
+\indent
+We present three possible fits for temperature-dependent fractionation $\delta^{18}O$ of calcite in FGL. The first fit (Fig. 6b, equation 13) assumes temperatures and $\delta^{18}O$ of water from the depth sampled. The second fit utilizes temperatures and $\delta^{18}O$ from surface waters prior to the date sampled (Fig. 6c, equation 14) and assumes a settling rate of 2 $m*d^{-1}$ as suggested by @Ludlam_1969. The third fit (equation 15) utilizes temperatures and $\delta^{18}O$ from surface waters prior to the date sampled (Fig. 6c, equation 14) and assumes a settling rate of 1 $m*d^{-1}$.
+Standard error in our regression slope and intercept (Fig. 6) are sufficiently large that we cannot exclude either fractionation from @Kim_1997 or @Daeron_2019. Each of the preceding fits yields (eq. 13 - 15, respectively)
+$$13. \ 1000ln(\alpha) = \frac{(18.52 \pm 3.05) *10^3}{T} - (33.46 \pm 10.51)$$ 
+$$14. \ 1000ln(\alpha) = \frac{(18.26 \pm 4.70)*10^3}{T} - (32.29 \pm 16.01)$$
+$$15. \ 1000ln(\alpha) = \frac{(17.70 \pm 4.64)*10^3}{T} - (30.43 \pm 15.85)$$   Models of isotopic equilibrium [@Devriendt_2017] suggest that the fractionation represented by Kim and O'Neil (1997) reflects kinetic isotope effects between calcite and $CO_3^{2-}$. Isotopic equilibrium is thought be achieved in conditions of $\alpha$ ~ 1 and low Ionic Strength (I < 0.05 M/l) [@Devriendt_2017], neither of which are true in FGL during Summer precipitation.  
+\indent
+Recently, Devil's Hole, Nevada, and the Laghetto Basso, Italy, yielded $H_2O$-$CaCO_3$ fractionation suggestive of calcite forming in an equilibrium which differs from Kim & O'Neil (1997) (Daeron et al., 2019, Coplen, 2007, Demeny et al., 2010). Devil's Hole, Nevada and Laghetto Basso, Italy are stable in terms of temperature, *pH* and water chemistry, something which is not true of FGL. FGL experiences large annual temperature swings of 25&deg;C, seasonal changes in $[HCO_3^-]$, and changes in saturation state $\alpha$. $\delta^{18}O$ fractionation from $H_2O$-$CaCO_3$ in FGL straddles the equilibrium lines defined by Daeron (2019) and Kim & O'Neil (1997). 
+We argue that crystals are predominantly formed in surface waters but nonlinear settling rates, and a possible reduction of calcite settling rates at the thermocline, adds noise to the calculation of fractionation factors.
+Concurrently, core $T{(\Delta47)}$ and water column $T{(\Delta47)}$ yield temperatures which suggest carbonate forms in the upper surface waters. Average core $\delta^{18}O$ values are -9.78‰ $_{(VPDB)}$, while average $\delta^{18}O$ of surface water was calculated to be -9.13‰ $_{(VSMOW)}$. Assuming modern surface $\delta^{18}O$ composition of water is representative of $\delta^{18}O$ during core deposition, this yields a fractionation factor ($\alpha$) of 1.03015. This $\alpha$ value yields average lake values of 17°C and 25°C, using temperature-fractionation fits from Kim & O'Neil (1997) and Daeron (2019), both of which straddle summer average (JJA) measured temperatures.  
+\indent
+Our system shows a range of fractionations which swing between the two end-members defined by Kim and O'Neil and Daeron's equations. All our results demonstrate that calcite formed in FGL, in conditions far different than idealized equilibrium, still have $\delta^{18}O$ fractionation which does not extend outside of the these bounds. Thus, we propose that the ideal of equilibrium in natural systems may be best represented by a range of fractionations falling within the bounds of  Kim and O'Neil and Daeron's fractionation lines.
+
+## Limitations
+\indent
+As the first  study to sample calcium carbonate suspended in the water column of a marl lake with the goal of determining clumped isotope values, our sampling strategy resulted in unforeseen subsequent analytical challenges. The sampling strategy was designed around pumping 30 to 175 *l* of water to recover sufficient carbonate on filters for at least five clumped isotope replicate analyses per filter (~ 40 *mg*). We did not consider, however, that the quantity of glass fiber filter material would result in low percent carbonate per replicate which resulted in a systematic offset in $\Delta_{47}$.  
+\indent  
+At this time, it is unclear what is  responsible for the systematic offset in $\Delta_{47}$; however,  we posit three possibilities. 1) The presence of such a large amount of glass fiber filter material relative to carbonate could slow the reaction in the common acid bath, preventing the reaction proceeding to completion. It was clear from the initial gas extractions that samples were still reacting with the common acid bath after the standard reaction time of 10 minutes, thus reaction times were prolonged to 30 minutes to eliminate this possibility. 2) The high surface area of glass fiber filters could adsorb $CO_2$ or $H_2O$, or there could be direct exchange of oxygen from the filter to the carbonate. Whatever the source, the filter would then equilibrate with the water in the common acid bath and exchange with $CO_2$ generated during acidification. 3) The low percent carbonate is analogous to low $CO_2$ yield, which resulted in an analytic offset on the MAT253.  
+\indent
+Two samples of pure crushed glass-fiber material were reacted in the phosphoric acid bath independent of carbonate to examine if a substantial volume of gas was evolved and not captured in the freezing stages of the manual extraction line. The gas evolved from these samples was of such low volume, ~2 orders of magnitude less than achieved from a proper carbonate reaction of 8 *mg*, that no specific measurement of the gas composition was ascertained.  
+\indent
+Although we identified an offset in $\Delta_{47}$ once  % carbonate dipped below 10%, there was no systematic relationship between % carbonate and total $\Delta_{47}$ offset. Results from a larger suite of standards mixed with glass-fiber filter might reveal a  systematic correction, or  at a minimum, better constrain our averaged bulk offset of 0.06‰ (VPDB) for each sample (Fig. 6). Anyone seeking to sample carbonate from the water column should  consider ways to either separate carbonate from the filter material or maintain at least 10% carbonate in any aggregate with glass fiber filter material.
+\indent
+Our limited precision in estimating the settling rate of calcite complicated interpretation of the isotopic values of calcite samples at  7.5, 10, and 15 meters below the lake surface. We initially applied previously calculated settling rates of 2-4 m/day [@Brunskill_1969b]; however, it seems likely that crystal settling rates vary through the epilimnion. The highest variance in carbonate $\delta^{18}O$ occurred in samples taken from 7.5 meters depth (n = 7), while the highest variance in $\delta^{13}C$ occurred in samples taken from 10 meters depth (n = 3). We interpret this as evidence of the base of the thermocline in which calcite crystals are ‘caught’ and a simple linear settling rate assumption breaks down. Thus, samples taken from this depth likely integrate over a broader period of time than those closer to the surface and give rise to samples with larger isotopic variance at these depths. 
+ 
+
+\newpage
+
+# Conclusions  
+\indent
+Fayetteville Green Lake in upstate New York provides an ideal environment to study the $\delta^{18}O$, $\delta^{13}C$, and $T(\Delta_{47})$ of modern lacustrine carbonates. Due to agreement between summer surface water temperatures, $T(\Delta_{47})$ from short core segments, and $T(\Delta_{47})$ from water column carbonates lake carbonate samples showed a strong likelihood of formation within the upper 2.5 meters of the water column. Carbonates sampled from cores within the lake show a warm-season bias indistinguishable from the summer mean temperature. Although the large variance in $\Delta_{47}$ of our samples, due to low percent carbonate, made seasonal calibration difficult we interpret the clumped isotope paleothermometer of carbonate as a warm-season proxy in light of the support of $T(\Delta_{47})$ from core segments.  
+\indent
+Our work supports that of past research in confirming concentrations of carbonate within the water column from Brunskill (1969b) while utilizing a different methodology. Maximum crystal loads were found at 7.5 meters depth within the water column, though isotope data support the idea that this material was formed at the surface and caught at this depth.
+Further, our findings have important implications for the use of lacustrine carbonates as temperature proxies. When applying the clumped-isotope paleothermometer of calcite to lacustrine settings, formation temperatures should be interpreted as a warm-season proxy and care should be taken in applying the proper transfer function indicative of the season in which calcite was formed. Application of the incorrect transfer function can lead to MAAT estimates in excess of the analytical uncertainty of the clumped isotope paleothermometer, both the spring and summer transfer functions from @Hren_2012 overestimated MAAT based on MAWT 3°C to 7°C, respectively.
+ 
+\indent
+Although the majority of our $\delta^{18}O$ fractionation data straddled the bounds set by Kim & O'Neil (1997) and Daeron (2019) it is not clear that a change in the $\delta^{18}O$ of carbonate over some time period in this lacustrine setting is indicative of changing temperatures or changing equilibrium conditions. Our samples showed a range of oxygen fractionations and were affected by small fluctuations in the $\delta^{18}0$ of lake water. We advocate for calculating paleotemperatures in lacustrine settings by considering both Daeron (2019) and Kim & O'Neil (1997) fits for $\delta^{18}O$ fractionation.   
+
+\newpage
+## Supplementary Materials
+
+```{r supp_table, echo =FALSE, fig.align = 'center', message=FALSE, warning=FALSE, out.width="100%"}
+knitr::include_graphics("tables/water_df_supp_table.pdf")
+```
+\begin{singlespace}
+Supplementary Table 1: Concentration of anions and cations recorded from FGL water samples (summer 2019). All concentrations are in units of mM.
+\end{singlespace}
+
+\newpage
+
+```{r supp_table_iso, echo = FALSE, fig.align = 'center', message=FALSE, warning=FALSE, out.width="100%"}
+knitr::include_graphics("tables/supp_table_iso_uw.pdf")
+```
+\begin{singlespace}
+Supplementary Table 2: Stable isotope data of Oxygen ($\delta^{18}O$) and Carbon ($\delta^{13}C$) was measured at the University of Washington on a MAT253 after being extracted on a manual gas extraction line. This data was only used for the purpose of understanding the offset of stable isotope values recorded with glass-fiber glass material. Values of $\delta^{18}O$) and ($\delta^{13}C$ referenced in table 2 were measured at the University of Michigan Stable Isotope Laboratory on a Kiel device. 
+\end{singlespace}
+
+\newpage
+
+```{r supp_table_sampling, echo = FALSE, fig.align = 'center', message=FALSE, warning=FALSE, out.width="100%"}
+knitr::include_graphics("tables/supp_table_sampling_regime.pdf")
+```
+\begin{singlespace}
+Supplementary Table 3: Dates and sample type sampled by depth. T, C, and W denote temperature, carbonate, and water samples, respectively. 
+\end{singlespace}
+
+\newpage
+
+
+# References
+
+<div id="refs"></div>
+
+\newpage
+
+# Vita
+Micah Wiesner was born in Rochester, New York. He was raised with a curious mind and spent his youth balancing time between chess, sports, and learning instruments. He released his first musical compositions and albums, with the Red Kettle Collective in 2014. He graduated from SUNY Geneseo in 2016 and received the degree of Bachelor of Science in Geophysics. Prior to entering Syracuse University he taught high school sciences, Earth Science and Ecology, at Park View High School, VA, and Vertus High School, NY. He currently works as a data analyst and lives in Rochester, New York with his partner, Gabrielle Kosoy.
+
+
+
+
