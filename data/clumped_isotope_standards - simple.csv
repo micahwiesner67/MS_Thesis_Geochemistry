@@ -1,0 +1,9 @@
+Name,d13C_VPDB (permil),d18O_VPDB (permil),D47_ARF (permil),notes
+C64,-2.05,-15.54,0.525,"d13Cacc and d18Oacc from kiel_refmat_nist on 150223, D47 is from Schauer_RCM_2016"
+Coral,-2.14,-4.5,0.622,"d13Cacc and d18Oacc from kiel_refmat_nist on 150223, D47 is from Schauer_RCM_2016"
+C2,-48.93,-16.49,0.52,"d13Cacc and d18Oacc from kiel_refmat_nist on 150223, D47 is from Schauer_RCM_2016"
+ETH1,2.14,-2.18,0.205,"d13C and d18O from Meckler_RCM_2014, D47 from Schauer_RCM_2016"
+ETH2,-10.1,-18.76,0.199,"d13C and d18O from Meckler_RCM_2014, D47 from Schauer_RCM_2016"
+ETH3,1.81,-1.77,0.612,"d13C and d18O from Meckler_RCM_2014, D47 from Schauer_RCM_2016"
+ETH4,-10.11,-18.82,0.453,"d13C and d18O from Meckler_RCM_2014, D47 from Schauer_RCM_2016"
+Polly CO2 Reference Gas,-10.3,-6.44,0.9,
